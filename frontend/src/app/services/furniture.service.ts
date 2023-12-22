@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { sample_furtitures, sample_tags } from 'src/data';
 import { FURNITURES_BY_ID_URL, FURNITURES_BY_SEARCH_URL, FURNITURES_BY_TAG_URL, FURNITURES_TAGS_URL, FURNITURES_URL } from '../shared/constants/urls';
 import { Furniture } from '../shared/models/Furniture';
 import { Tag } from '../shared/models/Tag';
