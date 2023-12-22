@@ -1,0 +1,45 @@
+<app-not-found
+  [visible]="!furniture"
+  notFoundMessage="Furniture Not Found"
+  resetLinkText="Back To Homepage"
+></app-not-found>
+<div *ngIf="furniture" class="container">
+  <img [src]="furniture.imageUrl" [alt]="furniture.name"/>
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{furniture.name}}
+      </span>
+      <span class="favorite {{furniture.favorite? '':'not'}}">❤</span>
+    </div>
+    <div class="rating">
+      <star-rating
+      [value]="furniture.stars"
+      [totalstars]="5"
+      checkedcolor="red"
+      uncheckedcolor="black"
+      size="25px"
+      [readonly]="true">
+    </star-rating>
+    </div>
+
+    <div class="origins">
+      <span *ngFor="let origin of furniture.origins">
+        {{origin}}
+      </span>
+      </div>
+
+      <div class="tags">
+        <a *ngFor="let tag of furniture.tags" routerLink="/tag/{{tag}}">{{tag}}
+        </a>
+      </div>
+      <div class="price">
+        <span>
+          {{furniture.price | currency}}
+        </span>
+      </div>
+      <button (click)="addToCart()">Add To Cart</button>
+    </div>
+  </div>
+
