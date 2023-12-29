@@ -31,7 +31,6 @@ export class FurnitureService {
   }
 
   getFurnitureById(furnitureId:string): Observable<Furniture>{
-    console.log(FURNITURES_BY_ID_URL+furnitureId)
   return this.http.get<Furniture>(FURNITURES_BY_ID_URL + furnitureId);
 }
 }

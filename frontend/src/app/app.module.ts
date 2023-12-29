@@ -15,6 +15,7 @@ import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartPageComponent,
     TitleComponent,
     NotFoundComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

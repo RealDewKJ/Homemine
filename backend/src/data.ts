@@ -53,7 +53,6 @@ export const sample_users: any[] = [
     email: "john@gmail.com",
     password: "12345",
     address: "Tokyo",
-    image: "https://cdn3.vectorstock.com/i/1000x1000/15/47/cute-cat-head-cartoon-logo-icon-vector-24171547.jpg",
     isAdmin: true,
   },
   {
@@ -61,7 +60,6 @@ export const sample_users: any[] = [
     email: "dew@gmail.com",
     password: "12345",
     address: "Saraburi",
-    image: "https://cdn3.vectorstock.com/i/1000x1000/15/47/cute-cat-head-cartoon-logo-icon-vector-24171547.jpg",
     isAdmin: true,
 },
 {
@@ -69,7 +67,6 @@ export const sample_users: any[] = [
   email: "manu@gmail.com",
   password: "12345",
   address: "Argentina",
-  image: "https://cdn3.vectorstock.com/i/1000x1000/15/47/cute-cat-head-cartoon-logo-icon-vector-24171547.jpg",
   isAdmin: false,
 }
 ]

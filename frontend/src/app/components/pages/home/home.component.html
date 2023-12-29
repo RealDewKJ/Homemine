@@ -5,16 +5,16 @@
 </app-not-found>
 <ul>
   <li *ngFor="let furniture of furnitures"
-  ><a routerLink="/furniture/{{furniture.id}}">
+  ><a routerLink="/furniture/{{furniture.id}}" style="border-radius: 10px;">
       <img [src]="furniture.imageUrl" [alt]="furniture.name"/>
       <div class="content">
-      <div class="name">
+      <div class="name" style="margin-left: 5px;">
         {{furniture.name}}
       </div>
       <span class="favorite {{furniture.favorite?'':'not'}}">
         ❤
       </span>
-    <div class="stars">
+    <div class="stars" style="margin-left: 5px;">
       <star-rating
       [value]="furniture.stars"
       [totalstars]="5"
@@ -23,7 +23,7 @@
       size="22px"
       [readonly]="true"></star-rating>
     </div>
-    <div class="product-item-footer">
+    <div class="product-item-footer" style="margin-left: 5px;">
       <div class="origins">
         <span *ngFor="let origin of furniture.origins">
           {{origin}}
