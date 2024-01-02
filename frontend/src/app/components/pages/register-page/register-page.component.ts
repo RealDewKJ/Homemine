@@ -41,11 +41,11 @@ export class RegisterPageComponent {
   }
   submit() {
     this.isSubmitted = true;
-    console.log(this.isSubmitted)
-    if (this.registerForm.invalid) return
-
+    if (this.registerForm.invalid) {
+      console.log(this.registerForm)
+      return
+    }
     const fv = this.registerForm.value
-    console.log(fv)
     const user: IUserRegister = {
       name: fv.name,
       email: fv.email,
