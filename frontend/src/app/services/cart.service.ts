@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Injectable, ɵisObservable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';

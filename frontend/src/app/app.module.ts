@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { RatingModule } from 'ng-starrating';
-import { StarRatingComponent } from 'ng-starrating/public-api';
+
 import { SearchComponent } from './components/partials/search/search.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
 import { FurniturePageComponent } from './components/pages/furniture-page/furniture-page.component';
@@ -17,6 +19,10 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
+
+
+import { ToastModule } from 'primeng/toast';
+import { StarRatingsComponent } from './components/partials/star-ratings/star-ratings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +35,17 @@ import { RegisterPageComponent } from './components/pages/register-page/register
     TitleComponent,
     NotFoundComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    StarRatingsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    RatingModule,
+    CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

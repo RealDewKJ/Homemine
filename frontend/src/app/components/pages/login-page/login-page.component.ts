@@ -2,11 +2,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
+  providers: [MessageService]
 })
 export class LoginPageComponent implements OnInit {
 
@@ -15,7 +16,8 @@ export class LoginPageComponent implements OnInit {
   returnUrl = '';
 
 
-  constructor(private formBuilder:FormBuilder, private userService: UserService, private router:Router, private route: ActivatedRoute){
+  constructor(private formBuilder:FormBuilder, private userService: UserService, private router:Router, private route: ActivatedRoute,
+    private messageService: MessageService){
 
 
   }
@@ -36,8 +38,19 @@ export class LoginPageComponent implements OnInit {
     if(this.loginForm.invalid) return;
 
     this.userService.login({email:this.fc.email.value, password:this.fc.password.value}).subscribe((res) => {
-      this.router.navigateByUrl(this.returnUrl)
+   if (res) {
+    console.log(res);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Message Content',
+    });
 
+    // Delay the navigation using setTimeout
+    setTimeout(() => {
+      this.router.navigateByUrl(this.returnUrl);
+    }, 3000);
+   }
     })
 
 

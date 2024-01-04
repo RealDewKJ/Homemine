@@ -66,7 +66,7 @@ const generateTokenResponse = (user:any)=>{
     expiresIn:"30d"
  });
  
- user.token = token;
+ user._doc.token = token;
  return user;
 }
 
