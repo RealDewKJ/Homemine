@@ -5,6 +5,7 @@ import cors from "cors";
 import furnitureRouter from './routes/furniture.routes'
 import userRouter from './routes/user.routes'
 import { dbConnect } from './config/db.config';
+import verifyToken from './middleware/authJwt';
 dbConnect()
 
 const app = express ();
@@ -14,7 +15,7 @@ app.use(cors({
     origin:["http://localhost:4200"]
 }));
 
-app.use("/api/furnitures", furnitureRouter)
+app.use("/api/furnitures",verifyToken, furnitureRouter)
 app.use("/api/user", userRouter)
 
 

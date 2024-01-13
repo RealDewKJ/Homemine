@@ -2,6 +2,7 @@ import { Router } from "express";
 import { sample_furtitures,sample_tags } from "../data";
 import asyncHandler from 'express-async-handler'
 import { FurnitureModel } from "../models/furniture.model";
+import verifyToken from '../middleware/authJwt';
 const router = Router();
 
 router.get("/seed", asyncHandler(
