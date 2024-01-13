@@ -1,3 +1,4 @@
+<app-loading></app-loading>
 <app-not-found
   [visible]="!furniture"
   notFoundMessage="Furniture Not Found"
@@ -29,7 +30,7 @@
       </div>
       <div class="price">
         <span>
-          {{furniture.price | currency}}
+          ฿{{furniture.price}}.00
         </span>
       </div>
       <button (click)="addToCart()">Add To Cart</button>

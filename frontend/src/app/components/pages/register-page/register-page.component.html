@@ -1,10 +1,9 @@
-<div class="container">
-  <div class="header">
-    <h2>Registration Form</h2>
-  </div>
+<div class="wrapper">
+  <h1>Sign Up</h1>
   <form [formGroup]="registerForm" (ngSubmit)="submit()">
-    <label for="username">Username:</label>
+
     <input
+    placeholder="Username"
       formControlName="name"
       type="text"
       id="username"
@@ -16,8 +15,9 @@
       <div *ngIf="fc.name.errors.required">Should not be empty</div>
     </div>
 
-    <label for="email">Email:</label>
+
     <input
+    placeholder="Email"
       formControlName="email"
       type="email"
       id="email"
@@ -31,8 +31,9 @@
     </div>
 
 
-    <label for="password">Password:</label>
+
     <input
+    placeholder="Password"
       formControlName="password"
       type="password"
       id="password"
@@ -40,8 +41,8 @@
       required
     />
 
-    <label for="confirmPassword">Confirm Password:</label>
     <input
+    placeholder="Re-Enter Password"
       formControlName="confirmPassword"
       type="password"
       id="confirmPassword"
@@ -50,18 +51,23 @@
     />
 
     <div>
-      <label for="address">Address:</label>
-      <textarea
-        formControlName="address"
-        type="text"
-        id="address"
-        name="address"
-        required style="margin-top: 5px; width: 100%; height: 80px;"
-      >
-      </textarea>
+      <textarea style="background: #e4e4e4; border: 1px solid #fff;" placeholder="Address"  formControlName="address"
+      type="text"
+      id="address"
+      name="address" rows="5" cols="24" pInputTextarea [autoResize]="true"></textarea>
     </div>
 
+    <div>
+      <p-button styleClass="custom-button" type="submit" label="Sign Up" [rounded]="true"></p-button>
+    </div>
+    <div  class="member">
+      Already a member?
+      <a routerLink="/login" [queryParams]="{returnUrl : returnUrl}" style="margin-top: 15px; ">
+      Login here
+      </a>
 
-    <button type="submit">Register</button>
+    </div>
+
   </form>
 </div>
+

@@ -8,6 +8,7 @@ import {jwtDecode} from 'jwt-decode';
 import { IUserRegister } from '../shared/interface/IUserRegister';
 
 const USER_KEY = 'User'
+const Cart = 'Cart'
 @Injectable({
   providedIn: 'root'
 })
@@ -62,4 +63,8 @@ export class UserService {
     };
     return new User();
    }
+
+   public get userValue(): User {
+    return this.userSubject.value;
+}
 }

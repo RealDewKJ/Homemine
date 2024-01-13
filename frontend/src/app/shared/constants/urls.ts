@@ -1,4 +1,10 @@
+import { HttpHeaders } from "@angular/common/http";
+
 const BASE_URL = "http://localhost:5000";
+const authToken = localStorage.getItem("User");
+export const httpOptions = {
+  headers: new HttpHeaders({})
+};
 
 export const FURNITURES_URL = BASE_URL + '/api/furnitures' ;
 export const FURNITURES_TAGS_URL = FURNITURES_URL + '/tags' ;

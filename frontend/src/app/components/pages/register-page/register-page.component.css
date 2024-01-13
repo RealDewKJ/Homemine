@@ -1,60 +1,56 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.container {
+.wrapper {
+  width: 330px;
+  padding: 2rem 1rem;
+  margin: 50px auto;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  width: 400px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.header {
-  background-color: #3498db;
-  color: #fff;
+  border-radius: 10px;
   text-align: center;
-  padding: 20px 0;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+
 }
 
-form {
-  padding: 20px;
+h1{
+  font-size: 2rem;
+  color: #07001f;
+  margin-bottom: 1.2rem;
+}
+form input{
+  width: 92%;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background: #e4e4e4;
+  height: 50px;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #333;
+::ng-deep .custom-button {
+  width: 92%;
+  margin-top: 1.5rem;
+  height: 50px;
+  background-color: #1797ff;
+  }
+
+
+input[type="text"]:focus{
+  border: 1px solid rgb(192, 192, 192);
+}
+input[type="email"]:focus{
+  border: 1px solid rgb(192, 192, 192);
+}
+input[type="password"]:focus{
+  border: 1px solid rgb(192, 192, 192);
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
-button {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .member{
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+  }
 
-button:hover {
-  background-color: #2184cb;
-}
+  .member a {
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+  }

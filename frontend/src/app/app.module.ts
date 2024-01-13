@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 
@@ -22,7 +22,15 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 
 
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StarRatingsComponent } from './components/partials/star-ratings/star-ratings.component';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { JwtInterceptor } from './shared/interceptors/jwt.interceptors';
+import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
+import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
+import { MapComponent } from './components/partials/map/map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +44,11 @@ import { StarRatingsComponent } from './components/partials/star-ratings/star-ra
     NotFoundComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    StarRatingsComponent
+    StarRatingsComponent,
+    LoadingComponent,
+    CheckoutPageComponent,
+    OrderItemsListComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +57,14 @@ import { StarRatingsComponent } from './components/partials/star-ratings/star-ra
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    InputTextModule,
+    ButtonModule,
+    InputTextareaModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

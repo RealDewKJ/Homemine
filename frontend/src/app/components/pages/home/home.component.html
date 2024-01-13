@@ -1,4 +1,6 @@
+<app-loading></app-loading>
 <app-search></app-search>
+<app-tags></app-tags>
 <app-not-found
   [visible]="!furnitures || !furnitures.length"
   resetLinkText="Reset Search">
@@ -26,44 +28,11 @@
     </div>
     <div class="price">
       <span>
-        {{furniture.price | currency }}
+        ฿{{furniture.price }}.00
       </span>
     </div>
     </div>
   </a>
 </li>
 </ul>
-<app-tags></app-tags>
-
-
-<html lang="en">
-<meta charset="UTF-8">
-<link rel="stylesheet" href="home.component.css">
-<link rel="stylesheet" 		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<body>
-<ul class="ul-social">
-<li style="--i:#a955ff;--j:#ea51ff;">
-  <span class="icon"><i class="fa fa-facebook"></i></span>
-  <span class="titulo">facebook</span>
-</li>
-<li style="--i:#56CCF2;--j:#2F80ED;">
-  <span class="icon"><i class="fa fa-twitter"></i></span>
-  <span class="titulo">twitter</span>
-</li>
-<li style="--i:#86be6b;--j:#1baf16;">
-  <span class="icon"><i class="fa fa-whatsapp"></i></span>
-  <span class="titulo">whatsapp</span>
-</li>
-<li style="--i:#80FF72;--j:#5ec3d4;">
-  <span class="icon"><i class="fa fa-linkedin"></i></span>
-  <span class="titulo">linkedin</span>
-</li>
-<li style="--i:#FFA9C6;--j:#F434E2;">
-  <span class="icon"><i class="fa fa-instagram"></i></span>
-  <span class="titulo">instagram</span>
-</li>
-</ul>
-</body>
-</html>
 

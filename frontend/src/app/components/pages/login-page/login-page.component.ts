@@ -39,11 +39,10 @@ export class LoginPageComponent implements OnInit {
 
     this.userService.login({email:this.fc.email.value, password:this.fc.password.value}).subscribe((res) => {
    if (res) {
-    console.log(res);
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
-      detail: 'Message Content',
+      detail: 'Login successful',
     });
 
     // Delay the navigation using setTimeout
