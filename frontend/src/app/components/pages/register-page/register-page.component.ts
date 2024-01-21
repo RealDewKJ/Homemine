@@ -33,7 +33,6 @@ export class RegisterPageComponent {
       validators: PasswordMatchValidator('password', 'confirmPassword')
     })
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
-    console.log(this.registerForm)
   }
 
   get fc() {
@@ -42,7 +41,6 @@ export class RegisterPageComponent {
   submit() {
     this.isSubmitted = true;
     if (this.registerForm.invalid) {
-      console.log(this.registerForm)
       return
     }
     const fv = this.registerForm.value

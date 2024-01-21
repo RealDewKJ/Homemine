@@ -4,6 +4,12 @@
 @import "primeng/resources/primeng.css";
 @import "~leaflet/dist/leaflet.css";
 @import 'primeng/resources/primeng.min.css';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   box-sizing: border-box;
 

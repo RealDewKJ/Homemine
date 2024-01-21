@@ -4,6 +4,21 @@
   align-items: flex-start;
   margin: 1.5rem;
   margin-top: 0.5rem;
+
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+  }
+
+  @media screen and (min-width: 1800px) {
+    max-width: 1800px;
+  }
+
+
+  @media screen and (min-width: 2500px) {
+    max-width: 2500px;
+  }
+
 }
 
 ul{

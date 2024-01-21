@@ -4,6 +4,8 @@ import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 import { Order } from 'src/app/shared/models/Order';
 import { MessageService } from 'primeng/api';
+import { OrderService } from 'src/app/services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-page',
@@ -17,7 +19,9 @@ export class CheckoutPageComponent implements OnInit  {
   constructor(cartService: CartService,
               private formBuilder: FormBuilder,
               private userService: UserService,
-              private messageService: MessageService) {
+              private messageService: MessageService,
+              private orderService: OrderService,
+              private router: Router) {
                 const cart = cartService.getCart()
                 this.order.items = cart.items
                 this.order.totalPrice = cart.totalPrice
@@ -37,16 +41,36 @@ export class CheckoutPageComponent implements OnInit  {
   createOrder(){
     if (this.checkoutForm.invalid) {
       this.messageService.add({
-        severity: 'warning',
-        summary: 'Warning',
+        severity: 'warn',
+        summary: 'Warn',
         detail: 'Please fill the inputs',
       });
       return;
     }
+    if(!this.order.addressLatLng) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Warn',
+        detail: 'Please select your location on the map',
+      })
+      return
+    }
 
     this.order.name = this.fc.name.value;
     this.order.address = this.fc.address.value;
+    this.orderService.create(this.order).subscribe({
+      next:(order) => {
+        this.router.navigateByUrl('payment')
+      },
+      error:(errorResponse) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'danger'
+        })
+      }
+    })
 
-    console.log(this.order)
+
   }
 }

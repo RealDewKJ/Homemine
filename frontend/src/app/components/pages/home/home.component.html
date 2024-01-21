@@ -5,6 +5,7 @@
   [visible]="!furnitures || !furnitures.length"
   resetLinkText="Reset Search">
 </app-not-found>
+
 <ul>
   <li *ngFor="let furniture of furnitures"
   ><a routerLink="/furniture/{{furniture.id}}" style="border-radius: 10px;">
