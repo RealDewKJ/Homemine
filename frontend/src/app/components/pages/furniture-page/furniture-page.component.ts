@@ -16,7 +16,6 @@ export class FurniturePageComponent implements OnInit {
   constructor(activatedRoute:ActivatedRoute, furnitureService:FurnitureService,
     private cartService:CartService, private router: Router,loadingService: LoadingService){
     activatedRoute.params.subscribe((params) => {
-      console.log(params);
       if(params.id)
       loadingService.showLoading()
        furnitureService.getFurnitureById(params.id).subscribe(serverFurniture => {

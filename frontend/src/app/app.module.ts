@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -31,6 +32,9 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptors';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 import { MapComponent } from './components/partials/map/map.component';
+import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
+import { PaymentButtonComponent } from './components/partials/payment-button/payment-button.component';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +52,9 @@ import { MapComponent } from './components/partials/map/map.component';
     LoadingComponent,
     CheckoutPageComponent,
     OrderItemsListComponent,
-    MapComponent
+    MapComponent,
+    PaymentPageComponent,
+    PaymentButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,9 @@ import { MapComponent } from './components/partials/map/map.component';
     ToastModule,
     InputTextModule,
     ButtonModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DropdownModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

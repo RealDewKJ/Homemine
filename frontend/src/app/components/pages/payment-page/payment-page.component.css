@@ -9,15 +9,22 @@
 .content{
   width: 35rem;
   margin-right: 3rem;
-}
-
-.content,form {
   display: flex;
   flex-direction: column;
 }
 
-form{
-  width: 100%;
+.summary > div{
+  display: flex;
+  margin-top: 0.7rem;
+}
+
+.summary span{
+  font-size: 1.2rem;
+}
+
+.summary h3{
+  margin: 0 1rem 0 0;
+  flex-basis: 5rem;
 }
 
 .buttons-container{
@@ -29,21 +36,4 @@ form{
 .buttons{
   margin: 2rem;
   width: 35rem;
-}
-
-button{
-  color: white;
-  background-color: #1797ff;
-  width: 100%;
-  height: 3rem;
-  opacity: 0.8;
-  border: none;
-  border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px 2px gray;
-  font-size: 20px;
-}
-
-button:hover{
-  opacity: 1;
-  cursor: pointer;
 }

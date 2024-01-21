@@ -6,6 +6,7 @@ import furnitureRouter from './routes/furniture.routes'
 import userRouter from './routes/user.routes'
 import { dbConnect } from './config/db.config';
 import verifyToken from './middleware/authJwt';
+import orderRouter from './routes/order.routes'
 dbConnect()
 
 const app = express ();
@@ -17,6 +18,7 @@ app.use(cors({
 
 app.use("/api/furnitures",verifyToken, furnitureRouter)
 app.use("/api/user", userRouter)
+app.use("/api/orders",verifyToken, orderRouter)
 
 
 const port = 5000;

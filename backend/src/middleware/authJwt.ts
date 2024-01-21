@@ -23,7 +23,6 @@ const verifyToken = (req: any, res: any, next: any) => {
       message: "No token provided!",
     });
   }
-
   jwt.verify(authToken,
     apiKey!,
     (err: any, decoded: any) => {
