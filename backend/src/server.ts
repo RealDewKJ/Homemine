@@ -16,7 +16,7 @@ app.use(cors({
     origin:["http://localhost:4200"]
 }));
 
-app.use("/api/furnitures",verifyToken, furnitureRouter)
+app.use("/api/furnitures", furnitureRouter)
 app.use("/api/user", userRouter)
 app.use("/api/orders",verifyToken, orderRouter)
 
