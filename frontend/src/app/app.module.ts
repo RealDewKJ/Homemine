@@ -6,6 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+  GoogleLoginProvider,
+} from "@abacritt/angularx-social-login";
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -19,7 +25,7 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
-
+import { GoogleSigninComponent } from './components/partials/google-signin/google-signin.component';
 
 
 import { ToastModule } from 'primeng/toast';
@@ -54,7 +60,8 @@ import { DropdownModule } from 'primeng/dropdown';
     OrderItemsListComponent,
     MapComponent,
     PaymentPageComponent,
-    PaymentButtonComponent
+    PaymentButtonComponent,
+    GoogleSigninComponent
   ],
   imports: [
     BrowserModule,
@@ -68,10 +75,28 @@ import { DropdownModule } from 'primeng/dropdown';
     ButtonModule,
     InputTextareaModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('997182945022-ig82r87bg4atbfeceq64len7iv7ngldo.apps.googleusercontent.com', {
+              scopes: 'openid profile email',
+            }),
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        },
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

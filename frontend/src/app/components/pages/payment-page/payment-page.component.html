@@ -17,9 +17,11 @@
     <app-title title="Shipping Address" fontSize="1.6rem"></app-title>
     <map [order]="order"  [readonly]="true"></map>
   </div>
-  <div class="buttons-container">
-    <div class="buttons flex justify-center">
-      <payment-button></payment-button>
-    </div>
-  </div>
+
 </div>
+<div class="text-xl my-2 font-medium flex justify-center t">
+  Select Your Payment
+</div>
+  <div class=" flex justify-center">
+    <payment-button class="flex gap-5"></payment-button>
+  </div>

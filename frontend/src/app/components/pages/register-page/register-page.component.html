@@ -1,73 +1,96 @@
-<div class="wrapper">
-  <h1>Sign Up</h1>
-  <form [formGroup]="registerForm" (ngSubmit)="submit()">
+<p-toast></p-toast>
 
-    <input
-    placeholder="Username"
-      formControlName="name"
-      type="text"
-      id="username"
-      name="username"
-      required
-    />
+<div class="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">
+  <div class="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">
+      <div class="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">
+          <div class="rounded-xl bg-white shadow-xl">
+              <div class="p-6 ">
+                  <div class="space-y-4">
+                      <img src="https://tailus.io/sources/blocks/social/preview/images/icon.svg" loading="lazy" class="w-10" alt="tailus logo">
+                      <h2 class="mb-8 text-2xl text-cyan-900 font-bold">Sign in to unlock the <br> best of Tailus.</h2>
+                  </div>
+                  <form  [formGroup]="registerForm" (ngSubmit)="submit()">
+                    <div class="bg-white  w-full  ">
+                      <div class="py-7">
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block">Username</label>
+                        <input
+                          formControlName="name"
+                          type="text"
+                          id="username"
+                          name="username"
+                          class="border rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full"
+                          required
+                        />
+                        <div class="error-list"  style="color: red;" *ngIf="fc.name.errors && isSubmitted">
+                          <div *ngIf="fc.name.errors.required">Should not be empty</div>
+                        </div>
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block" required>E-mail</label>
+                        <input formControlName="email" type="text" class="border rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full" />
+                        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+                          <div *ngIf="fc.email.errors.required">Should not be empty</div>
+                          <div *ngIf="fc.email.errors.email">Email is not correct</div>
+                        </div>
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+                        <input required formControlName="password"  type="password" class="border rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full" />
+                        <div class="error-list mb-5" style="color: red;" *ngIf="fc.password.errors && isSubmitted">
+                          <div *ngIf="fc.password.errors.required">*Should not be empty</div>
+                        </div>
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block">Re-Enter Password</label>
+                        <input
+                          formControlName="confirmPassword"
+                          type="password"
+                          id="confirmPassword"
+                          name="confirmPassword"
+                          required
+                          class="border rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full"
+                        />
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block">Address</label>
+                        <textarea  rows="6"
+                        class="w-full rounded-md px-4 border text-sm pt-2.5 outline-[#007bff]"></textarea>
+                        <button type="submit" class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+                            <span class="inline-block mr-2">Sign Up</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                      </div>
 
-    <div class="error-list" *ngIf="fc.name.errors && isSubmitted">
-      <div *ngIf="fc.name.errors.required">Should not be empty</div>
-    </div>
+                    </div>
+                  </form>
+                  <div class="flex justify-center font-bold m-2">
+                    OR
+                  </div>
+                    <div class="mt-4 grid space-y-4">
+                      <div class="flex justify-center">
+                        <google-signin (loginWithGoogle)="googleSignin($event)"></google-signin>
+                      </div>
 
+                    </div>
 
-    <input
-    placeholder="Email"
-      formControlName="email"
-      type="email"
-      id="email"
-      name="email"
-      required
-    />
+                    <div class="py-5">
+                      <div class="grid grid-cols-2 gap-1">
+                        <div class="text-center sm:text-left whitespace-nowrap">
+                          <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block align-text-top">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                              </svg>
+                              <span class="inline-block ml-1">Forgot Password</span>
+                          </button>
+                        </div>
+                        <div class="text-center sm:text-right  whitespace-nowrap">
+                          <button class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block align-text-bottom	">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                              </svg>
+                              <span  routerLink="/login" [queryParams]="{returnUrl : returnUrl}"
+                                 class="inline-block ml-1"> Login here</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
-    <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
-      <div *ngIf="fc.email.errors.required">Should not be empty</div>
-      <div *ngIf="fc.email.errors.email">Email is not correct</div>
-    </div>
-
-
-
-    <input
-    placeholder="Password"
-      formControlName="password"
-      type="password"
-      id="password"
-      name="password"
-      required
-    />
-
-    <input
-    placeholder="Re-Enter Password"
-      formControlName="confirmPassword"
-      type="password"
-      id="confirmPassword"
-      name="confirmPassword"
-      required
-    />
-
-    <div>
-      <textarea style="background: #e4e4e4; border: 1px solid #fff;" placeholder="Address"  formControlName="address"
-      type="text"
-      id="address"
-      name="address" rows="5" cols="24" pInputTextarea [autoResize]="true"></textarea>
-    </div>
-
-    <div>
-      <button  class="text-white font-bold py-2 hover:bg-blue-600 bg-blue-500  px-4 rounded focus:outline-none focus:shadow-outline" type="submit" style=" margin-top: 0.5rem;" label="Submit">submit</button>
-    </div>
-    <div  class="member">
-      Already a member?
-      <a routerLink="/login" [queryParams]="{returnUrl : returnUrl}" style="margin-top: 15px; ">
-      Login here
-      </a>
-
-    </div>
-
-  </form>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
-

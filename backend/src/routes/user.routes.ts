@@ -24,8 +24,8 @@ router.post("/login", asyncHandler(
  async  (req,res) => {
     const email = req.body.email;
     const password = req.body.password;
-    const user = await UserModel.findOne({email})
-    if(user && (await bcrypt.compare(password,user.password)) ){
+    const user = await UserModel.findOne({email, googleAccess: false})
+    if(user && (await bcrypt.compare(password,user.password))){
         res.send(generateTokenResponse(user))
     }else{
       res.status(HTTP_BAD_REQUEST).send("Username or Password is invalid!")
@@ -34,10 +34,34 @@ router.post("/login", asyncHandler(
 ) 
 )
 
+router.post('/logingoogle', asyncHandler(
+  async (req, res) => {
+    const email = req.body.email;
+    const password = 'googleAccess';
+    const name = req.body.name;
+    const user = await UserModel.findOne({email, googleAccess: true})
+    if(user) {
+        res.send(generateTokenResponse(user))
+    }else{
+      const newUser: User = {
+        id: '',
+        name,
+        email: email.toLowerCase(),
+        password: password,
+        address: 'th',
+        googleAccess: true,
+        isAdmin: false
+      }
+      const createUser = await UserModel.create(newUser)
+      res.send(generateTokenResponse(createUser))
+    }
+}) 
+)
+
 router.post('/register', asyncHandler(
   async (req, res) => {
     const { name, email, password, address} = req.body
-    const user = await UserModel.findOne({email})
+    const user = await UserModel.findOne({email, googleAccess: false})
     if(user) {
       res.status(HTTP_BAD_REQUEST).send("User is already exits, please login!")
       return  
@@ -51,6 +75,7 @@ router.post('/register', asyncHandler(
       email: email.toLowerCase(),
       password: encryptedPassword,
       address,
+      googleAccess: false,
       isAdmin: false
     }
 

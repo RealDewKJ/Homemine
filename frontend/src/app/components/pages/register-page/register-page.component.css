@@ -14,16 +14,7 @@ h1{
   color: #07001f;
   margin-bottom: 1.2rem;
 }
-form input{
-  width: 92%;
-  outline: none;
-  border: 1px solid #fff;
-  padding: 12px 20px;
-  margin-bottom: 10px;
-  border-radius: 20px;
-  background: #e4e4e4;
-  height: 50px;
-}
+
 
 ::ng-deep .custom-button {
   width: 92%;

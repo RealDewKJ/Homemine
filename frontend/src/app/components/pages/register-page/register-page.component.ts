@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { PasswordMatchValidator } from 'src/app/shared/validators/password_match_validator';
 import { IUserRegister } from 'src/app/shared/interface/IUserRegister';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.css']
+  styleUrls: ['./register-page.component.css'],
+  providers: [MessageService]
 })
 export class RegisterPageComponent {
   registerForm!: FormGroup;
@@ -19,7 +21,8 @@ export class RegisterPageComponent {
   constructor(private formBuilder: FormBuilder,
      private userService: UserService,
      private activatedRoute: ActivatedRoute,
-     private router: Router) {
+     private router: Router,
+     private messageService: MessageService) {
 
   }
   ngOnInit(): void {
@@ -51,8 +54,30 @@ export class RegisterPageComponent {
       confirmPassword: fv.confirmPassword,
       address: fv.address
     }
-    this.userService.register(user).subscribe(_ => {
-      this.router.navigateByUrl(this.returnUrl)
-    })
-  }
+    this.userService.register(user).subscribe(res => {
+      if (res) {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Register successful',
+        });
+
+        // Delay the navigation using setTimeout
+        setTimeout(() => {
+          this.router.navigateByUrl(this.returnUrl);
+        }, 3000);
+       }
+        },
+         (errorResponse) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: errorResponse.error,
+          });
+        }
+        )
+      }
+      googleSignin(googleWrapper: any) {
+        googleWrapper.click();
+      }
 }
