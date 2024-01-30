@@ -24,7 +24,7 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-
+    this.checkTokenExpiration();
   }
 
   logout() {
@@ -33,5 +33,12 @@ export class HeaderComponent {
 
   get isAuth() {
     return this.user.email;
+  }
+
+  private checkTokenExpiration(): void {
+    if (this.userService.isTokenExpired()) {
+      // Token is expired, perform logout
+      this.userService.logout();
+    }
   }
 }

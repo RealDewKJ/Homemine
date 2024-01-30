@@ -41,6 +41,7 @@ import { MapComponent } from './components/partials/map/map.component';
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { PaymentButtonComponent } from './components/partials/payment-button/payment-button.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { SuccessPageComponent } from './components/pages/success-page/success-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,16 +51,17 @@ import { DropdownModule } from 'primeng/dropdown';
     TagsComponent,
     FurniturePageComponent,
     CartPageComponent,
-    TitleComponent,
-    NotFoundComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    PaymentPageComponent,
+    CheckoutPageComponent,
+    SuccessPageComponent,
+    TitleComponent,
+    NotFoundComponent,
     StarRatingsComponent,
     LoadingComponent,
-    CheckoutPageComponent,
     OrderItemsListComponent,
     MapComponent,
-    PaymentPageComponent,
     PaymentButtonComponent,
     GoogleSigninComponent
   ],

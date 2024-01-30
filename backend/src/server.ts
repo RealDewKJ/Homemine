@@ -18,7 +18,7 @@ app.use(cors({
 
 app.use("/api/furnitures", furnitureRouter)
 app.use("/api/user", userRouter)
-app.use("/api/orders",verifyToken, orderRouter)
+app.use("/api/orders", orderRouter)
 
 
 const port = 5000;

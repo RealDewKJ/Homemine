@@ -52,7 +52,7 @@ export class UserService {
    logout() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
-    window.location.reload();
+    // this.router.navigate(['/']);
    }
 
    private setUserToLocalStorage(user:User) {
@@ -70,6 +70,26 @@ export class UserService {
 
    public get userValue(): User {
     return this.userSubject.value;
+}
+
+getToken(): string | null {
+  return localStorage.getItem(USER_KEY);
+}
+
+// Method to check if the token is expired
+isTokenExpired(token?: string): boolean {
+  if (!token) {
+    token = this.getToken() || undefined;
+  }
+
+  if (!token) {
+    return true;
+  }
+
+  const decoded = jwtDecode(token);
+  const expirationDate = decoded.exp! * 1000; // Convert to milliseconds
+  const isExpired = Date.now() > expirationDate;
+  return isExpired;
 }
 
 

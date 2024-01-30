@@ -3,35 +3,38 @@ export const sample_furtitures: any[] = [
 {
     id:'1',
     name: 'LOBERGET/ MALSKÄR',
-    price: 37,
+    price: 370,
     favorite: true,
     origins: ['India'],
     stars: 4.7,
     imageUrl: 'assets/LOBERGET.jpg',
     tags: ['Chair', 'Loberget', 'White','India'],
-    tag: ['Chair', 'Loberget', 'White','India']
+    tag: ['Chair', 'Loberget', 'White','India'],
+    remainQuantity: 30
   },
   {
     id:'2',
     name: 'GUNDE',
-    price: 14,
+    price: 200,
     favorite: true,
     origins: ['India'],
     stars: 4,
     imageUrl: 'assets/gunde.jpg',
     tags: ['Chair', 'Folding','Black','India'],
     tag: ['Chair', 'Folding','Black','India'],
+    remainQuantity: 30
   },
   {
     id:'3',
     name: 'TOKABO',
-    price: 10,
+    price: 300,
     favorite: false,
     origins: ['Japan'],
     stars: 4,
     imageUrl: 'assets/tokabo.jpg',
     tags: ['Table Lamp', 'White'],
     tag: ['Table Lamp', 'White'],
+    remainQuantity: 30
   },
 
 ]
