@@ -23,6 +23,9 @@ export class CheckoutPageComponent implements OnInit  {
               private orderService: OrderService,
               private router: Router) {
                 const cart = cartService.getCart()
+                if (cart.totalPrice ===  0) {
+                   router.navigateByUrl('/cart-page')
+                }
                 this.order.items = cart.items
                 this.order.totalPrice = cart.totalPrice
   }

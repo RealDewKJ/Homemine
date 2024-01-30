@@ -9,6 +9,7 @@ export interface Furniture {
     stars:number;
     imageUrl:string;
     origins:string[];
+    remainQuantity: number;
 }
 
 export const FurnitureSchema = new Schema<Furniture>(
@@ -20,6 +21,7 @@ export const FurnitureSchema = new Schema<Furniture>(
         imageUrl: {type: String, required: true},
         stars: {type: Number, required: true},
         origins: {type: [String], required: true},
+        remainQuantity: {type: Number, required: true}
     },{
         toJSON:{
             virtuals: true

@@ -7,5 +7,5 @@
   stars!:number;
   imageUrl!:string;
   origins!:string[];
-
+  remainQuantity!: number
  }

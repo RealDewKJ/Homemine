@@ -1,0 +1,57 @@
+<div class="max-w-4xl mx-auto border border-base-200 shadow-xl p-8 my-4">
+  <div>
+    <div class="text-2xl font-bold">Your order is Successful</div>
+    <div>Hi {{ order.name }}</div>
+    <div>Waiting to receive the product!!</div>
+  </div>
+  <div class="divider"></div>
+  <div class="grid grid-cols-4 gap-2">
+    <div>
+      <div class="font-bold">Order Date</div>
+      <div>{{ order.createdAt }}</div>
+    </div>
+    <div>
+      <div class="font-bold">Order Number</div>
+      <div>{{ order.id }}</div>
+    </div>
+    <div>
+      <div class="font-bold">Payment Method</div>
+      <!-- <div>{{ order.paymentMethod }}</div> -->
+    </div>
+    <div>
+      <div class="font-bold">Address</div>
+      <div>{{ order.address }}</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div *ngFor="let product of order.items" class="grid grid-cols-4 gap-2 mb-4 items-center">
+    <div>
+      <img class="w-full" [src]="product.furniture.imageUrl">
+    </div>
+    <div class="font-bold">
+      {{ product.furniture.name }}
+    </div>
+    <div>
+      Quantity: {{ product.quantity }}
+    </div>
+    <div>
+      Total Price: {{ product.price * product.quantity }}
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="flex justify-between">
+    <div>Subtotal</div>
+    <div>{{ order.totalPrice }}.00</div>
+  </div>
+  <div class="flex justify-between mt-4">
+    <div>Shipping Price</div>
+    <div>0.00</div>
+  </div>
+  <div class="divider"></div>
+  <div class="flex justify-between mt-4">
+    <div>Total Price</div>
+    <div>{{ order.totalPrice }}.00</div>
+  </div>
+  <div class="divider"></div>
+  <div>Thank for Bunding!</div>
+</div>
