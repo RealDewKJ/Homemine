@@ -1,6 +1,9 @@
-<div class="containers" *ngIf="isLoading">
-<div class="details">
-  <img src="/assets/loading.svg">
-  <h1>Loading...</h1>
-</div>
-</div>
+@if (isLoading) {
+  <div class="containers" >
+    <div class="details">
+      <img src="/assets/loading.svg">
+      <h1>Loading...</h1>
+    </div>
+    </div>
+}
+

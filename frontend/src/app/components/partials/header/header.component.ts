@@ -38,7 +38,8 @@ export class HeaderComponent {
   private checkTokenExpiration(): void {
     if (this.userService.isTokenExpired()) {
       // Token is expired, perform logout
-      this.userService.logout();
+      this.userService.logout()
+
     }
   }
 }

@@ -8,6 +8,7 @@ export interface User{
     address: string;
     googleAccess: boolean;
     isAdmin: boolean;
+    imageUrl: string
   }
 
   export const  UserSchema = new Schema<User>({
@@ -16,7 +17,8 @@ export interface User{
     password: {type: String, required: true},
     address: {type: String, required: true},
     googleAccess: {type: Boolean, required: true},
-    isAdmin: {type: Boolean, required: true}
+    isAdmin: {type: Boolean, required: true},
+    imageUrl: {type: String}
   }, {
     timestamps: true,
     toJSON: {

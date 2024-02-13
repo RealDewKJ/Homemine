@@ -18,6 +18,8 @@ export class UserService {
   public userObservable:Observable<User>;
   constructor(private http: HttpClient, private router: Router) {
     this.userObservable = this.userSubject.asObservable();
+    console.log('userObserve', this.userObservable)
+    console.log('userValue',this.userValue)
    }
 
    register(userRegister:IUserRegister): Observable<User> {
@@ -39,7 +41,9 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
+          console.log(user)
           this.setUserToLocalStorage(user);
+
           this.userSubject.next(user);
         },
         error: (errorResponse) => {
@@ -50,6 +54,12 @@ export class UserService {
   }
 
    logout() {
+    this.userSubject.next(new User());
+    localStorage.removeItem(USER_KEY);
+    window.location.reload()
+   }
+
+   clearToken() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     // this.router.navigate(['/']);
@@ -83,7 +93,7 @@ isTokenExpired(token?: string): boolean {
   }
 
   if (!token) {
-    return true;
+    return false;
   }
 
   const decoded = jwtDecode(token);

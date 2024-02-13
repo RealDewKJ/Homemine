@@ -42,6 +42,7 @@ import { PaymentPageComponent } from './components/pages/payment-page/payment-pa
 import { PaymentButtonComponent } from './components/partials/payment-button/payment-button.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { SuccessPageComponent } from './components/pages/success-page/success-page.component';
+import { AdminRoutingModule } from './components/pages/admin/admin-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,8 @@ import { SuccessPageComponent } from './components/pages/success-page/success-pa
     InputTextareaModule,
     DropdownModule,
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AdminRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

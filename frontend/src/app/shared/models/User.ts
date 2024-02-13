@@ -3,7 +3,7 @@ export class User{
   email!: string;
   name!: string;
   address!: string;
-  image!: string;
+  imageUrl!: string;
   isAdmin!: boolean;
   token!: string;
 }

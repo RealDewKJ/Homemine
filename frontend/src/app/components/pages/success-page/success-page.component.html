@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="max-w-4xl mx-auto border border-base-200 shadow-xl p-8 my-4">
   <div>
     <div class="text-2xl font-bold">Your order is Successful</div>
@@ -24,20 +25,22 @@
     </div>
   </div>
   <div class="divider"></div>
-  <div *ngFor="let product of order.items" class="grid grid-cols-4 gap-2 mb-4 items-center">
-    <div>
-      <img class="w-full" [src]="product.furniture.imageUrl">
+  @for ( product of order.items; track $index) {
+    <div class="grid grid-cols-4 gap-2 mb-4 items-center">
+      <div>
+        <img class="w-full" [src]="product.furniture.imageUrl">
+      </div>
+      <div class="font-bold">
+        {{ product.furniture.name }}
+      </div>
+      <div>
+        Quantity: {{ product.quantity }}
+      </div>
+      <div>
+        Total Price: {{ product.price * product.quantity }}
+      </div>
     </div>
-    <div class="font-bold">
-      {{ product.furniture.name }}
-    </div>
-    <div>
-      Quantity: {{ product.quantity }}
-    </div>
-    <div>
-      Total Price: {{ product.price * product.quantity }}
-    </div>
-  </div>
+  }
   <div class="divider"></div>
   <div class="flex justify-between">
     <div>Subtotal</div>

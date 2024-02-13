@@ -1,0 +1,14 @@
+<!-- table.component.html -->
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-content></ng-content>
+    </tbody>
+  </table>
+</div>

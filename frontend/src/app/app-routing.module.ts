@@ -9,6 +9,8 @@ import { CheckoutPageComponent } from './components/pages/checkout-page/checkout
 import { authGuard } from './auth/guards/auth.guard';
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { SuccessPageComponent } from './components/pages/success-page/success-page.component';
+import { ErrorComponent } from './components/pages/error/error.component';
+import { adminGuard } from './auth/guards/admin.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -20,7 +22,10 @@ const routes: Routes = [
  {path: 'register', component:RegisterPageComponent},
  {path: 'checkout', component:CheckoutPageComponent, canActivate:[authGuard]},
  {path: 'payment', component:PaymentPageComponent, canActivate:[authGuard]},
- {path: 'success', component: SuccessPageComponent, canActivate:[authGuard]}
+ {path: 'success', component: SuccessPageComponent, canActivate:[authGuard]},
+ {path: 'admin', loadChildren: () => import('./components/pages/admin/admin.module').then(m => m.AdminModule) },
+ {path: '**', component: ErrorComponent},
+
 ];
 
 @NgModule({

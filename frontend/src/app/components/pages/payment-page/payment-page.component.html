@@ -1,27 +1,31 @@
+<app-header></app-header>
 <div class="containers">
   <div class="content">
     <app-title title="Order Form" fontSize="1.6rem"></app-title>
     <div class="summary">
       <div>
         <h3>Name:</h3>
-        <span>{{order.name}}</span>
+        <span>{{ order.name }}</span>
       </div>
       <div>
         <h3>Order:</h3>
-        <span>{{order.address}}</span>
+        <span>{{ order.address }}</span>
       </div>
     </div>
     <order-items-list [order]="order"></order-items-list>
   </div>
   <div class="map">
     <app-title title="Shipping Address" fontSize="1.6rem"></app-title>
-    <map [order]="order"  [readonly]="true"></map>
+    <map [order]="order" [readonly]="true"></map>
   </div>
-
-</div>
-<div class="text-xl my-2 font-medium flex justify-center t">
-  Select Your Payment
-</div>
-  <div class=" flex justify-center">
-    <payment-button [order]="order" class="flex gap-5"></payment-button>
+  <div class="buttons-container">
+    <div class="row">
+      <div class="text-xl my-2 font-medium text-center mt-5">
+        Select Your Payment
+      </div>
+      <div class="flex justify-center">
+        <payment-button [order]="order" class="flex gap-5"></payment-button>
+      </div>
+    </div>
   </div>
+</div>

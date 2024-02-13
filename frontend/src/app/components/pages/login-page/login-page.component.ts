@@ -3,6 +3,7 @@ import { UserService } from './../../../services/user.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -15,10 +16,10 @@ export class LoginPageComponent implements OnInit {
   isSubmitted = false;
   returnUrl = '';
   user: any;
-  loggedIn: any;
+  loggedIn: boolean = false;
 
   constructor(private formBuilder:FormBuilder, private userService: UserService, private router:Router, private route: ActivatedRoute,
-    private messageService: MessageService,){
+    private messageService: MessageService,private loadingService: LoadingService){
 
 
   }
@@ -41,16 +42,18 @@ export class LoginPageComponent implements OnInit {
     this.userService.login({ email: this.fc.email.value, password: this.fc.password.value }).subscribe(
       (res) => {
         if (res) {
+          this.loggedIn = true;
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
             detail: 'Login successful',
           });
 
-          // Delay the navigation using setTimeout
           setTimeout(() => {
             this.router.navigateByUrl(this.returnUrl);
+            this.loggedIn = false;
           }, 3000);
+
         }
       },
       (errorResponse) => {

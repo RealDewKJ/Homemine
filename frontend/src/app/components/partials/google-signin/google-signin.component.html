@@ -1,5 +1,5 @@
 
-  <button  (click)="handleGoogleLogin()"  class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300
+  <button [disabled]="loggedIn"  (click)="handleGoogleLogin()"  class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300
   hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100" style="width: 350px;">
                              <div class="relative flex items-center space-x-4 justify-center">
                                  <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" class="absolute left-0 w-5" alt="google logo">

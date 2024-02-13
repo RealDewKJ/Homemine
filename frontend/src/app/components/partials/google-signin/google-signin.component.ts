@@ -1,5 +1,5 @@
 import { SocialAuthService } from '@abacritt/angularx-social-login';
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
@@ -16,8 +16,10 @@ declare global {
 })
 
 export class GoogleSigninComponent implements OnInit, OnDestroy  {
-  @Output() loginWithGoogle: EventEmitter<any> = new EventEmitter<any>();
 
+  @Output() loginWithGoogle: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  loggedIn!: boolean;
   authSubscription!: Subscription;
 
   constructor(private authService: SocialAuthService, private userService: UserService, private messageService: MessageService) {}

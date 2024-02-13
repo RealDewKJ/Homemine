@@ -8,16 +8,16 @@
       <a *ngIf="!isAuth" routerLink="/login">Login</a>
     </li>
     <li *ngIf="isAuth" class="menu-container">
-      <a routerLink="/dasboard">{{user.name}}</a>
+      <a >{{user.name}}</a>
     <div class="menu">
-      <a routerLink="profile">Profile</a>
-      <a routerLink="service">Service</a>
-      <a routerLink="contact">Contact</a>
+      <a >Profile</a>
+      <a >Service</a>
+      <a >Contact</a>
       <a (click)="logout()">Logout</a>
     </div>
   </li>
   <li>
-    <a routerLink="cart-page">
+    <a routerLink="/cart-page">
       Cart <span> {{cartQuantity}} </span></a>
   </li>
   </ul>

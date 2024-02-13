@@ -1,6 +1,10 @@
-<div *ngIf="tags">
-<a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}">
-  {{tag.name}}({{tag.count}})
-</a>
+@if (tags) {
+  <div>
+    @for (tag of tags; track $index) {
+      <a routerLink="/tag/{{tag.name}}">
+        {{tag.name}}({{tag.count}})
+      </a>
+    }
+    </div>
+}
 
-</div>

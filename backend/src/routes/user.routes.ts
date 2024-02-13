@@ -37,6 +37,7 @@ router.post("/login", asyncHandler(
 router.post('/logingoogle', asyncHandler(
   async (req, res) => {
     const email = req.body.email;
+    const image = req.body.photoUrl
     const password = 'googleAccess';
     const name = req.body.name;
     const user = await UserModel.findOne({email, googleAccess: true})
@@ -50,7 +51,8 @@ router.post('/logingoogle', asyncHandler(
         password: password,
         address: 'th',
         googleAccess: true,
-        isAdmin: false
+        isAdmin: false,
+        imageUrl: image
       }
       const createUser = await UserModel.create(newUser)
       res.send(generateTokenResponse(createUser))
@@ -76,7 +78,8 @@ router.post('/register', asyncHandler(
       password: encryptedPassword,
       address,
       googleAccess: false,
-      isAdmin: false
+      isAdmin: false,
+      imageUrl: ''
     }
 
     const dbUser = await UserModel.create(newUser)
@@ -86,9 +89,9 @@ router.post('/register', asyncHandler(
 
 const generateTokenResponse = (user:any)=>{
  const token = jwt.sign({
-  id:user.id, email:user.email, isAdmin:user.isAdmin, name:user.name, address:user.address
+  id:user.id, email:user.email, isAdmin:user.isAdmin, name:user.name,imageUrl:user.imageUrl,address: user.address
  },"SecretKeyDew", {
-    expiresIn:"1m"
+    expiresIn:"1d"
  });
  
  user._doc.token = token;
