@@ -53,8 +53,8 @@ ul li:last-child{
 li img{
   width: 5rem;
   height: 5rem;
-  border-radius: 100rem;
-  object-fit: cover;
+  /* border-radius: 100rem; */
+  object-fit: contain;
 }
 
 li div{

@@ -1,0 +1,36 @@
+<app-loading></app-loading>
+<div class="drawer">
+  <div class="drawer-content mx-4">
+    <div class="flex p-4 justify-between">
+      <div class="text-3xl font-bold">Order</div>
+    </div>
+    <app-table [headers]="['Customer Name','Price','Status','UpdateAt','']">
+      @for (order of orders; track $index) {
+        <tr>
+          <th>{{ order.name }}</th>
+
+          <td>{{ order.totalPrice }} ฿</td>
+          <td >
+          <div  class="badge"[class]="order.status === 'successful' ? 'badge-success' : (order.status === 'pending' ? 'badge-warning' : 'badge-error ')"
+          >
+            <p [class]="order.status === 'successful' ? 'text-white' : 'text-black'">{{ order.status }}</p>
+          </div>
+        </td>
+          <td>{{ order.updatedAt }}</td>
+          <td>
+              <div class="flex gap-2">
+                  <button routerLink="detail/{{order.id}}" class="btn btn-ghost">
+                    <svg class="w-6 h-6 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h0m9-4a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+                  </button>
+
+
+              </div>
+          </td>
+      </tr>
+      }
+    </app-table>
+  </div>
+  <app-sidebar></app-sidebar>
+</div>

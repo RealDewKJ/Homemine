@@ -58,6 +58,7 @@ a span{
   padding: 0.1rem 0.45rem;
   border-radius: 0.9rem;
   font-size: 0.9rem;
+
 }
 
 .menu-container{
@@ -67,6 +68,7 @@ a span{
 .menu{
   position:absolute;
   z-index: 1;
+  font-size: 1rem;
   background: whitesmoke;
   display: none;
 }

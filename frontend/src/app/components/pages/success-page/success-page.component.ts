@@ -21,7 +21,6 @@ export class SuccessPageComponent implements OnInit {
         next: (order) => {
           this.order = order;
           this.order.createdAt = this.formatDate(order.createdAt);
-          console.log(this.order)
         },
         error: (error) => {
           console.log(error)

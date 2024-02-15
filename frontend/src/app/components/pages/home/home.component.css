@@ -26,8 +26,10 @@ li hover{
 }
 
 li a img{
-  object-fit: cover;
-  height: 14.5rem;
+  object-fit: contain;
+  /* height: 14.5rem; */
+  max-height: 14.5rem;
+  width: auto; /* ทำให้ความกว้างปรับตามอัตราส่วนของรูปภาพ */
 }
 
 .content{

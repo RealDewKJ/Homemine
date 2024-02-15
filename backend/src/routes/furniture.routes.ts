@@ -76,4 +76,57 @@ router.get("/:furnitureId", asyncHandler (
     }
 ))
 
+router.post('/create', asyncHandler( 
+    async (req,res) => {
+        try {
+            const furniture = req.body
+            const newFurniture = new FurnitureModel(furniture)
+            await newFurniture.save()
+            res.status(201).json({ message: 'Furniture created successfully' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    }
+))
+
+router.post('/update', asyncHandler(
+    async (req, res) => {
+        try {
+           const furniture = req.body
+           const result = await FurnitureModel.updateOne(
+                { _id: furniture.id },
+                { $set: { ...furniture } }
+              );
+              if (result.modifiedCount > 0) {
+                res.status(201).json({ message: 'Furniture updated successfully' });
+              } else {
+                res.status(404).json({ message: 'Furniture not found or no changes made' });
+              }
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    }
+))
+
+router.delete('/delete/:id', asyncHandler(
+    async (req,res) => {
+        try {
+            const id = req.params.id.replace(/'/g, ''); 
+            const result = await FurnitureModel.deleteOne(
+                {_id : id}
+            )
+            if (result.deletedCount > 0) {
+                res.status(201).json({ message: 'Furniture deleted successfully' });
+            } else {
+                res.status(404).json({ message: 'Furniture not found or no changes made' });
+            }
+        } catch (error){
+            console.error(error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    }
+))
+
 export default router

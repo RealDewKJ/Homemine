@@ -1,0 +1,26 @@
+.custom-chips {
+  /* Add your styles for p-chips component */
+  /* For example: */
+  width: 100%;
+}
+
+.custom-chips .p-chips-token {
+  /* Customize the styles for the individual chips */
+  /* For example: */
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.custom-chips .p-chips-input-token {
+  /* Customize the styles for the input token */
+  /* For example: */
+  background-color: #f5f5f5;
+}
+
+.card {
+  /* Add styles for the card container */
+  /* For example: */
+  border: 1px solid #ccc;
+  padding: 10px;
+
+}

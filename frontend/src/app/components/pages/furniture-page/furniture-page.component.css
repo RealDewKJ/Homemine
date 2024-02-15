@@ -15,7 +15,8 @@ img{
   border-radius: 3rem;
   flex: 1 0;
   object-fit: cover;
-  height: 35rem;
+  min-height: 35rem;
+  max-height: 50rem;
   margin: 1rem;
 }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../shared/models/Order';
 import { HttpClient } from '@angular/common/http';
-import { GET_ORDER_BY_ID, ORDER_CRATE_URL, ORDER_NEW_FOR_CURRENT_USER_URL, ORDER_URL, PLACEORDER_URL, httpOptions } from '../shared/constants/urls';
+import { GET_ORDER_BY_ID, ORDER_BY_ID_URL, ORDER_CRATE_URL, ORDER_NEW_FOR_CURRENT_USER_URL, ORDER_URL, PLACEORDER_URL, httpOptions } from '../shared/constants/urls';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 declare var Omise: any;
@@ -43,6 +43,7 @@ export class OrderService {
         if (statusCode !== 200) {
           return reject(response)
         }
+        // console.log(response)
         resolve(response)
       }
       )
@@ -62,5 +63,11 @@ export class OrderService {
         });
     });
   }
+  getOrder():Observable<any>{
+    return this.http.get<any>(ORDER_URL)
+  }
 
+  getOrderById(orderId: string):Observable<any>{
+    return this.http.get<any>(ORDER_BY_ID_URL + orderId)
+  }
 }

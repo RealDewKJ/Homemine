@@ -1,6 +1,6 @@
 <header>
   <div class="container">
- <a routerLink="/" class="logo">HOMELAND
+ <a  routerLink="/" class="logo text-lg">HOMELAND
  </a>
  <nav>
   <ul>
@@ -8,7 +8,7 @@
       <a *ngIf="!isAuth" routerLink="/login">Login</a>
     </li>
     <li *ngIf="isAuth" class="menu-container">
-      <a >{{user.name}}</a>
+      <a class="text-lg">{{user.name}}</a>
     <div class="menu">
       <a >Profile</a>
       <a >Service</a>
@@ -17,7 +17,7 @@
     </div>
   </li>
   <li>
-    <a routerLink="/cart-page">
+    <a class="text-lg" routerLink="/cart-page">
       Cart <span> {{cartQuantity}} </span></a>
   </li>
   </ul>

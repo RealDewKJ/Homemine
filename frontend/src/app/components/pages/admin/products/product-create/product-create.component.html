@@ -1,5 +1,53 @@
+<p-toast></p-toast>
 <div class="drawer">
   <div class="drawer-content mx-4">
-</div>
-<app-sidebar></app-sidebar>
+    <div class="shadow-xl p-8 mt-4">
+      <div class="text-2xl font-bold">{{ mode }}</div>
+      <div class="divider"></div>
+
+      <div class="grid grid-cols-2 gap-2">
+        @for (form of formData; track $index) {
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text">{{ form.name }}</span>
+          </label>
+          <input
+            [(ngModel)]="productData[form.field]"
+            type="text"
+            class="input input-bordered w-full"
+          />
+        </div>
+        }
+        <div class="card p-fluid">
+          <label class="label">
+            <span class="label-text">Tags</span>
+          </label>
+          <p-chips
+            styleClass="custom-chips"
+            [(ngModel)]="productData.tags"
+            [max]="max"
+            placeholder="Maximum 3 items"
+          ></p-chips>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="grid grid-cols-2 gap-2">
+        <select
+          [(ngModel)]="productData.favorite"
+          class="select select-bordered w-full"
+        >
+          <option disabled selected>Choose Status?</option>
+          <option value=true>favorite</option>
+          <option value=false>not favorite</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-4 flex justify-end">
+      <a routerLink="/admin/products" class="btn btn-ghost">BACK</a>
+      <button class="btn btn-neutral" (click)="updateFurniture()">
+        {{ mode }}
+      </button>
+    </div>
+  </div>
+  <app-sidebar></app-sidebar>
 </div>

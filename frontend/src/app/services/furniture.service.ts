@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FURNITURES_BY_ID_URL, FURNITURES_BY_SEARCH_URL, FURNITURES_BY_TAG_URL, FURNITURES_TAGS_URL, FURNITURES_URL,httpOptions } from '../shared/constants/urls';
+import { FURNITURES_BY_ID_URL, FURNITURES_BY_SEARCH_URL, FURNITURES_BY_TAG_URL, FURNITURES_TAGS_URL, FURNITURES_URL,FURNITURE_CREATE,FURNITURE_DELETE,FURNITURE_UPDATE,httpOptions } from '../shared/constants/urls';
 import { Furniture } from '../shared/models/Furniture';
 import { Tag } from '../shared/models/Tag';
 
@@ -32,5 +32,17 @@ export class FurnitureService {
 
   getFurnitureById(furnitureId:string): Observable<Furniture>{
   return this.http.get<Furniture>(FURNITURES_BY_ID_URL + furnitureId,httpOptions);
-}
+  }
+
+  createFurniture(furniture:any) {
+    return this.http.post(FURNITURE_CREATE,furniture,httpOptions)
+  }
+
+  updateFurniture(furniture:any) {
+    return this.http.post(FURNITURE_UPDATE,furniture,httpOptions)
+  }
+
+  removeFurniture(id:string) {
+    return this.http.delete(FURNITURE_DELETE+`/'${id}'`,httpOptions)
+  }
 }

@@ -7,8 +7,11 @@ import { SidebarComponent } from '../../partials/sidebar/sidebar.component';
 import { ProductComponent } from './products/product/product.component';
 import { TableComponent } from '../../partials/table/table.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
-
-
+import { ChipsModule } from 'primeng/chips';
+import { ToastModule } from 'primeng/toast';
+import { OrderComponent } from './orders/order/order.component';
+import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
+import { LoadingComponent } from '../../partials/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,18 @@ import { ProductCreateComponent } from './products/product-create/product-create
     SidebarComponent,
     ProductComponent,
     TableComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    OrderComponent,
+    OrderDetailComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChipsModule,
+    ToastModule
   ]
 })
 export class AdminModule { }

@@ -14,6 +14,20 @@ const omise = require('omise')({
 
 const router = Router();
 
+router.get('/', asyncHandler(
+  async (req, res) => {
+    const order = await OrderModel.find()
+    res.send(order)
+  }
+))
+
+router.get('/:orderId', asyncHandler(
+  async (req, res) => {
+    const order = await OrderModel.findById(req.params.orderId)
+    res.send(order)
+  }
+)) 
+
 router.post('/create',verifyToken,
 asyncHandler(async (req:any, res:any) => {
     const requestOrder = req.body;
@@ -107,7 +121,12 @@ router.post('/placeOrder',verifyToken, asyncHandler(
             checkoutData.totalPrice,
             checkoutData._id
           )
-
+          // console.log(omiseResponse)
+          if (omiseResponse.source.scannable_code) {
+            const scannableCodeImage = omiseResponse.source.scannable_code.image;
+            console.log(scannableCodeImage);
+          } 
+          
             res.json({
                 message: 'Hello',
                 redirectUrl: omiseResponse.authorize_uri

@@ -15,7 +15,6 @@ export class LoginPageComponent implements OnInit {
   loginForm!:FormGroup;
   isSubmitted = false;
   returnUrl = '';
-  user: any;
   loggedIn: boolean = false;
 
   constructor(private formBuilder:FormBuilder, private userService: UserService, private router:Router, private route: ActivatedRoute,
