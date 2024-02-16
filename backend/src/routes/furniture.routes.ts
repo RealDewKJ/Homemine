@@ -76,7 +76,7 @@ router.get("/:furnitureId", asyncHandler (
     }
 ))
 
-router.post('/create', asyncHandler( 
+router.post('/create',verifyToken, asyncHandler( 
     async (req,res) => {
         try {
             const furniture = req.body
@@ -90,7 +90,7 @@ router.post('/create', asyncHandler(
     }
 ))
 
-router.post('/update', asyncHandler(
+router.post('/update',verifyToken, asyncHandler(
     async (req, res) => {
         try {
            const furniture = req.body
@@ -110,7 +110,7 @@ router.post('/update', asyncHandler(
     }
 ))
 
-router.delete('/delete/:id', asyncHandler(
+router.delete('/delete/:id',verifyToken, asyncHandler(
     async (req,res) => {
         try {
             const id = req.params.id.replace(/'/g, ''); 

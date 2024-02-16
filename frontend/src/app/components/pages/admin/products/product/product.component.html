@@ -1,4 +1,4 @@
-<app-loading></app-loading>
+
 <p-toast></p-toast>
 <div class="drawer">
   <div class="drawer-content mx-4">
@@ -23,7 +23,7 @@
           <td>{{ furniture.remainQuantity }}</td>
           <td>
               <div class="badge" [class]="furniture.stars > '3' ? 'badge-success' : 'badge-error'">
-                  {{ furniture.stars }}
+                 <p class="text-white">{{ furniture.stars }}</p>
               </div>
           </td>
           <td>{{ furniture.createdAt }}</td>

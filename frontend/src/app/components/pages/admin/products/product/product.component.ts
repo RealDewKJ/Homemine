@@ -21,14 +21,10 @@ export class ProductComponent implements OnInit {
   furnituresObservable.subscribe({
     next: (serverFurnitures) => {
       if (serverFurnitures) {
-        loadingService.showLoading();
         this.furnitures = serverFurnitures;
         this.furnitures.forEach(furniture => {
           furniture.createdAt = this.formatDate(furniture.createdAt);
         })
-        setTimeout(() => {
-          loadingService.hideLoading()
-        },300)
       }
     },
     error: (error) => {

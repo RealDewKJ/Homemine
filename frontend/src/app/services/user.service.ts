@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
-import { User } from '../shared/models/User';
+import { User, NewUser } from '../shared/models/User';
 import { IUserLogin } from '../shared/interface/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL, USER_LOGIN_WITH_GOOGLE, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_GET, USER_GET_BY_ID, USER_LOGIN_URL, USER_LOGIN_WITH_GOOGLE, USER_REGISTER_URL, USER_UPDATE_URL, httpOptions } from '../shared/constants/urls';
 import {jwtDecode} from 'jwt-decode';
 import { IUserRegister } from '../shared/interface/IUserRegister';
 import { Router } from '@angular/router';
@@ -109,8 +109,19 @@ handleLogin(resp: any) {
     this.router.navigateByUrl('/');
   }, 2000);
 })
-
-
 }
 
+
+getAllUser():Observable<NewUser[]> {
+  return this.http.get<NewUser[]>(USER_GET)
+}
+
+
+getUserById(userId: string):Observable<NewUser> {
+  return this.http.get<NewUser>(USER_GET_BY_ID + userId)
+}
+
+updateUser(user: NewUser) {
+  return this.http.put<NewUser>(USER_UPDATE_URL,user, httpOptions)
+}
 }

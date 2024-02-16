@@ -7,3 +7,12 @@ export class User{
   isAdmin!: boolean;
   token!: string;
 }
+
+
+export interface GoogleAccess {
+  googleAccess: boolean;
+}
+
+export type NewUser = Pick <User, 'id' | 'name' | 'isAdmin'> & GoogleAccess & {
+  updatedAt: Date | string;
+}

@@ -5,8 +5,25 @@ import asyncHandler from 'express-async-handler'
 import { User, UserModel } from "../models/user.model";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import bcrypt from 'bcryptjs'
+import verifyToken from "../middleware/authJwt";
 const router = Router();
 
+
+router.get('/', asyncHandler(
+  async (req,res) => {
+    const user = await UserModel.find();
+    if(user) res.send(user) 
+    else res.status(HTTP_BAD_REQUEST).send("Can't find User")
+  }
+))
+
+router.get('/:id' ,asyncHandler(
+  async (req,res) => {
+    const user = await UserModel.findById(req.params.id)
+    if (user) res.send(user)
+    else res.status(HTTP_BAD_REQUEST).send("Can't find User")
+  }
+))
 
 router.get("/seed", asyncHandler(
     async (req,res)  => { 
@@ -97,5 +114,25 @@ const generateTokenResponse = (user:any)=>{
  user._doc.token = token;
  return user;
 }
+
+router.put('/update',verifyToken, asyncHandler (
+  async (req,res) => {
+    try {
+      const user = req.body
+      const result = await UserModel.updateOne(
+        {_id: user.id},
+        { $set: { ...user }}
+      )
+      if (result.modifiedCount > 0) {
+        res.status(201).json({ message: 'User updated successfully' });
+      } else {
+        res.status(404).json({ message: 'User not found or no changes made' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+ 
+  }
+))
 
 export default router

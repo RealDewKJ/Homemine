@@ -1,0 +1,38 @@
+  <p-toast></p-toast>
+  @if (getUser) {
+    <div class="drawer">
+      <div class="drawer-content mx-4">
+
+        <div class="shadow-xl p-8 mt-4">
+          <div class="text-2xl font-bold">Update user</div>
+          <div class="divider"></div>
+          <div class="grid grid-cols-1 gap-2">
+              <div class="form-control w-full">
+                  <label class="label">
+                      <span class="label-text">Name</span>
+                  </label>
+                  <input [(ngModel)]="getUser.name" type="text"  class="input input-bordered w-full" />
+              </div>
+              <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text">Role</span>
+                </label>
+                <select [(ngModel)]="getUser.isAdmin" class="select select-bordered w-full ">
+                  <option value=true>Admin</option>
+                  <option value="false">User</option>
+              </select>
+            </div>
+
+          </div>
+      <div class="mt-4 flex justify-end gap-2">
+          <a routerLink="/admin/users" class="btn btn-ghost">BACK</a>
+          <button class="btn btn-neutral" (click)="updateUser()">Update</button>
+      </div>
+
+      </div>
+      </div>
+      <app-sidebar></app-sidebar>
+    </div>
+
+
+  }

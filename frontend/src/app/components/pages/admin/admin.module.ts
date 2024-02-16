@@ -12,6 +12,8 @@ import { ToastModule } from 'primeng/toast';
 import { OrderComponent } from './orders/order/order.component';
 import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
 import { LoadingComponent } from '../../partials/loading/loading.component';
+import { UserComponent } from './users/user/user.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { LoadingComponent } from '../../partials/loading/loading.component';
     ProductCreateComponent,
     OrderComponent,
     OrderDetailComponent,
-    LoadingComponent
+    UserComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

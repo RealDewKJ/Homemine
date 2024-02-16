@@ -19,6 +19,7 @@ export class ProductCreateComponent implements OnInit {
   mode: string = 'Create'
   max = 3;
   productData: any = {
+    id: '',
     name: '',
     imageUrl: '',
     price: 0,
@@ -96,12 +97,12 @@ export class ProductCreateComponent implements OnInit {
             severity: 'success',
             summary: 'Success',
             detail: (res as any).message,
-            life: 3000  // Adjust the duration of the toast as needed
+            life: 3000
           });
 
           setTimeout(() => {
             this.router.navigateByUrl('/admin/products');
-          }, 1500);  // Adjust the timeout duration to match the toast duration
+          }, 1500);
         },
         error:(e) => {
           console.error(e)

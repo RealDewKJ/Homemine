@@ -75,7 +75,7 @@ export class SidebarComponent implements OnInit {
       },
       {
         name: 'User',
-        routeName: '/admin/product',
+        routeName: '/admin/users',
         path: `<svg
         class="w-6 h-6 fill-current inline-block"
         fill="currentColor"
