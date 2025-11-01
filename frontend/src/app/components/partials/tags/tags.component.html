@@ -1,10 +1,12 @@
 @if (tags) {
-  <div>
-    @for (tag of tags; track $index) {
-      <a routerLink="/tag/{{tag.name}}">
-        {{tag.name}}({{tag.count}})
-      </a>
-    }
-    </div>
+<div class="flex flex-wrap gap-2 justify-center my-6 px-4">
+  @for (tag of tags; track $index) {
+  <a
+    routerLink="/tag/{{ tag.name }}"
+    class="badge badge-outline badge-lg hover:badge-primary hover:text-primary-content transition-all"
+  >
+    {{ tag.name }} <span class="badge badge-sm ml-1">{{ tag.count }}</span>
+  </a>
+  }
+</div>
 }
-

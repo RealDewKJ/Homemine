@@ -6,7 +6,6 @@ import {  NewUser } from 'src/app/shared/models/User';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css',
   providers: [DatePipe]
 })
 export class UserComponent implements OnInit {

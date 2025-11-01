@@ -7,14 +7,13 @@ import { NewUser } from 'src/app/shared/models/User';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrl: './user-edit.component.css',
   providers: [MessageService]
 })
 export class UserEditComponent implements OnInit {
   getUser!: NewUser;
 
   constructor(private userService: UserService, route:ActivatedRoute, private messageService: MessageService, private router: Router) {
-    route.params.subscribe((params => {
+    route.params.subscribe((params: any) => {
       if (params.id) {
         userService.getUserById(params.id).subscribe({
           next: (user => {
@@ -24,7 +23,7 @@ export class UserEditComponent implements OnInit {
           })
         })
       }
-    }))
+    })
   }
 
 

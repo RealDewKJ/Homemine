@@ -1,59 +1,122 @@
-
 <app-header></app-header>
-<app-title fontSize="1.6rem" title="Cart Page" margin="1.5rem 0 0 2.5rem"></app-title>
+<app-title
+  fontSize="1.6rem"
+  title="Cart Page"
+  margin="1.5rem 0 0 2.5rem"
+></app-title>
 <app-not-found
   [visible]="!cart || !cart.items.length"
   notFoundMessage="Cart Page Is Empty!"
   resetLinkText="Go To Homepage"
 >
 </app-not-found>
- @if(cart && cart.items.length) {
-  <div class="containers">
-    <ul>
-      @for (cartItem of cart.items; track cartItem.furniture.id) {
-        <li >
-          <div>
-            <img [src]="cartItem.furniture.imageUrl" [alt]="cartItem.furniture.name">
-          </div>
-          <div>
-            <a routerLink="/food/{{cartItem.furniture.id}}">
-              {{cartItem.furniture.name}}
+@if(cart && cart.items.length) {
+<div class="container mx-auto px-4 py-8">
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (cartItem of cart.items; track cartItem.furniture.id) {
+        <tr>
+          <td>
+            <div class="avatar">
+              <div class="w-20 rounded">
+                <img
+                  [src]="cartItem.furniture.imageUrl"
+                  [alt]="cartItem.furniture.name"
+                />
+              </div>
+            </div>
+          </td>
+          <td>
+            <a
+              routerLink="/furniture/{{ cartItem.furniture.id }}"
+              class="link link-primary font-semibold"
+            >
+              {{ cartItem.furniture.name }}
             </a>
-          </div>
-          <div>
-            <select #quantitySelect
-            [value]="cartItem.quantity"
-            (change)="changeQuantity(cartItem, quantitySelect.value)">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          </div>
-          <div>
-            ฿{{cartItem.price}}.00
-          </div>
-
-          <div>
-            <button class="remove-button" (click)="removeFromCart(cartItem)">
+          </td>
+          <td>
+            <select
+              #quantitySelect
+              [value]="cartItem.quantity"
+              (change)="changeQuantity(cartItem, quantitySelect.value)"
+              class="select select-bordered select-sm"
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </td>
+          <td class="font-semibold">฿{{ cartItem.price }}.00</td>
+          <td>
+            <button
+              class="btn btn-error btn-sm"
+              (click)="removeFromCart(cartItem)"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                ></path>
+              </svg>
               Remove
             </button>
-          </div>
-          </li>
-      }
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
-    </ul>
-
-    <div class="checkout">
-      <div>
-        <div class="furniture-count">{{cart.totalCount}}</div>
-        <div class="total-price">฿{{cart.totalPrice}}.00</div>
+  <div class="card bg-base-200 shadow-xl mt-8">
+    <div class="card-body">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-lg font-semibold">Total Items:</span>
+        <span class="badge badge-primary badge-lg">{{ cart.totalCount }}</span>
       </div>
-
-      <a routerLink="/checkout">Proceed to Checkout</a>
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-2xl font-bold">Total Price:</span>
+        <span class="text-3xl font-bold text-primary"
+          >฿{{ cart.totalPrice }}.00</span
+        >
+      </div>
+      <div class="card-actions justify-end">
+        <a routerLink="/checkout" class="btn btn-primary btn-lg w-full">
+          Proceed to Checkout
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            ></path>
+          </svg>
+        </a>
+      </div>
     </div>
-    </div>
- }
-
-
+  </div>
+</div>
+}

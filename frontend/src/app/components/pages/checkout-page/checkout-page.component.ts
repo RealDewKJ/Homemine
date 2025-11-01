@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout-page',
   templateUrl: './checkout-page.component.html',
-  styleUrl: './checkout-page.component.css',
   providers: [MessageService]
 })
 export class CheckoutPageComponent implements OnInit  {

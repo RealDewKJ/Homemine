@@ -6,38 +6,78 @@
   resetLinkText="Back To Homepage"
 ></app-not-found>
 @if (furniture) {
-  <div  class="containers">
-    <img [src]="furniture.imageUrl" [alt]="furniture.name"/>
+<div class="container mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Image Section -->
+    <div class="card bg-base-100 shadow-xl">
+      <figure class="h-96 bg-base-200">
+        <img
+          [src]="furniture.imageUrl"
+          [alt]="furniture.name"
+          class="w-full h-full object-contain"
+        />
+      </figure>
+    </div>
 
-    <div class="details">
-      <div class="header">
-        <span class="name">
-          {{furniture.name}}
-        </span>
-        <span class="favorite {{furniture.favorite? '':'not'}}">❤</span>
-      </div>
-      <div class="rating">
-        <star-rating [stars]="furniture.stars" [size]="1.8"></star-rating>
-      </div>
-
-      <div class="origins">
-        <span *ngFor="let origin of furniture.origins">
-          {{origin}}
-        </span>
+    <!-- Details Section -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-4">
+          <h2 class="card-title text-3xl">{{ furniture.name }}</h2>
+          <span
+            class="text-3xl {{
+              furniture.favorite ? 'text-error' : 'text-base-content opacity-30'
+            }}"
+            >❤</span
+          >
         </div>
 
-        <div class="tags">
-          <a *ngFor="let tag of furniture.tags" routerLink="/tag/{{tag}}">{{tag}}
-          </a>
+        <div class="mb-4">
+          <star-rating [stars]="furniture.stars" [size]="1.8"></star-rating>
         </div>
-        <div class="price">
-          <span>
-            ฿{{furniture.price}}.00
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            *ngFor="let origin of furniture.origins"
+            class="badge badge-outline"
+          >
+            {{ origin }}
           </span>
         </div>
-        <button (click)="addToCart()">Add To Cart</button>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <a
+            *ngFor="let tag of furniture.tags"
+            routerLink="/tag/{{ tag }}"
+            class="badge badge-primary"
+          >
+            {{ tag }}
+          </a>
+        </div>
+
+        <div class="card-actions justify-between items-center pt-4 border-t">
+          <div class="text-4xl font-bold text-primary">
+            ฿{{ furniture.price }}.00
+          </div>
+          <button (click)="addToCart()" class="btn btn-primary btn-lg">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+            Add To Cart
+          </button>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 }
-
-

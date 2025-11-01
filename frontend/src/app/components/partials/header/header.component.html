@@ -1,26 +1,70 @@
-<header>
-  <div class="container">
- <a  routerLink="/" class="logo text-lg">HOMELAND
- </a>
- <nav>
-  <ul>
-    <li>
-      <a *ngIf="!isAuth" routerLink="/login">Login</a>
-    </li>
-    <li *ngIf="isAuth" class="menu-container">
-      <a class="text-lg">{{user.name}}</a>
-    <div class="menu">
-      <a >Profile</a>
-      <a >Service</a>
-      <a >Contact</a>
-      <a (click)="logout()">Logout</a>
+<header class="navbar bg-base-100 shadow-md border-b border-primary">
+  <div class="container mx-auto px-4">
+    <div class="flex-1">
+      <a routerLink="/" class="btn btn-ghost text-xl font-bold text-primary"
+        >HOMELAND</a
+      >
     </div>
-  </li>
-  <li>
-    <a class="text-lg" routerLink="/cart-page">
-      Cart <span> {{cartQuantity}} </span></a>
-  </li>
-  </ul>
- </nav>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1 gap-2">
+        <li>
+          <a *ngIf="!isAuth" routerLink="/login" class="btn btn-ghost">Login</a>
+        </li>
+        <li *ngIf="isAuth" class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost">
+            <span class="text-lg">{{ user.name }}</span>
+            <svg
+              class="w-4 h-4 ml-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg border border-base-300 mt-2"
+          >
+            <li><a class="hover:bg-base-200">Profile</a></li>
+            <li><a class="hover:bg-base-200">Service</a></li>
+            <li><a class="hover:bg-base-200">Contact</a></li>
+            <li>
+              <a
+                (click)="logout()"
+                class="hover:bg-error hover:text-error-content"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/cart-page" class="btn btn-ghost relative">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+            Cart
+            <span class="badge badge-primary badge-sm ml-1">{{
+              cartQuantity
+            }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>

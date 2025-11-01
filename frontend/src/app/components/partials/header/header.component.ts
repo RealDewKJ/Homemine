@@ -6,8 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/User';
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
 

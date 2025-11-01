@@ -9,7 +9,6 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.css'],
   providers: [MessageService]
 })
 export class RegisterPageComponent {

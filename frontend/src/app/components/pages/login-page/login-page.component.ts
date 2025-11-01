@@ -7,7 +7,6 @@ import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css'],
   providers: [MessageService]
 })
 export class LoginPageComponent implements OnInit {

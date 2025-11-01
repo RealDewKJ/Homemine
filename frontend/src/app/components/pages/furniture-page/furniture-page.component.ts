@@ -8,8 +8,7 @@ import { __param } from 'tslib';
 
 @Component({
   selector: 'app-furniture-page',
-  templateUrl: './furniture-page.component.html',
-  styleUrls: ['./furniture-page.component.css']
+  templateUrl: './furniture-page.component.html'
 })
 export class FurniturePageComponent implements OnInit {
   furniture!: Furniture;

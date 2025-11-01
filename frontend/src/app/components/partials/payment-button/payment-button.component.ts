@@ -12,8 +12,7 @@ interface Payment {
 
 @Component({
   selector: 'payment-button',
-  templateUrl: './payment-button.component.html',
-  styleUrl: './payment-button.component.css'
+  templateUrl: './payment-button.component.html'
 })
 export class PaymentButtonComponent implements OnInit  {
   @Input()

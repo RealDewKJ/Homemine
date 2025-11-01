@@ -6,8 +6,7 @@ import { Order } from 'src/app/shared/models/Order';
 
 @Component({
   selector: 'app-payment-page',
-  templateUrl: './payment-page.component.html',
-  styleUrl: './payment-page.component.css'
+  templateUrl: './payment-page.component.html'
 })
 export class PaymentPageComponent implements OnInit {
   order:Order = new Order();

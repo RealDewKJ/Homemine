@@ -5,8 +5,7 @@ import { Order } from 'src/app/shared/models/Order';
 
 @Component({
   selector: 'map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  templateUrl: './map.component.html'
 })
 export class MapComponent implements OnChanges {
 

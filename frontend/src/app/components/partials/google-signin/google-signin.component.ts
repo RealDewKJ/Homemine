@@ -11,8 +11,7 @@ declare global {
 }
 @Component({
   selector: 'google-signin',
-  templateUrl: './google-signin.component.html',
-  styleUrl: './google-signin.component.css'
+  templateUrl: './google-signin.component.html'
 })
 
 export class GoogleSigninComponent implements OnInit, OnDestroy  {

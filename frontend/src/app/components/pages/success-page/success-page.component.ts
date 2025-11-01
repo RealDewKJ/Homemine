@@ -7,7 +7,6 @@ import { Order } from 'src/app/shared/models/Order';
 @Component({
   selector: 'success-page',
   templateUrl: './success-page.component.html',
-  styleUrl: './success-page.component.css',
   providers: [DatePipe],
 })
 export class SuccessPageComponent implements OnInit {

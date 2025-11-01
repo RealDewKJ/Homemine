@@ -1,9 +1,10 @@
 @if (isLoading) {
-  <div class="containers" >
-    <div class="details">
-      <img src="/assets/loading.svg">
-      <h1>Loading...</h1>
-    </div>
-    </div>
+<div
+  class="fixed inset-0 bg-base-100 bg-opacity-80 z-50 flex items-center justify-center"
+>
+  <div class="flex flex-col items-center gap-4">
+    <span class="loading loading-spinner loading-lg text-primary"></span>
+    <h1 class="text-xl font-semibold text-base-content">Loading...</h1>
+  </div>
+</div>
 }
-

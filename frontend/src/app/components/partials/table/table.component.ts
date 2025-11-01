@@ -2,8 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit {
   @Input() headers: string[] = [];

@@ -12,8 +12,7 @@ interface menu {
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
   isSidebarOpen = true;

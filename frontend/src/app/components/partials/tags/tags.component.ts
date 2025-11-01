@@ -4,8 +4,7 @@ import { Tag } from 'src/app/shared/models/Tag';
 
 @Component({
   selector: 'app-tags',
-  templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.css']
+  templateUrl: './tags.component.html'
 })
 export class TagsComponent {
   tags?:Tag[];

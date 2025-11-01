@@ -1,41 +1,72 @@
 <p-toast></p-toast>
 <app-header></app-header>
-<div class="containers">
-  <div class="content">
-    <app-title title="Order Form" fontSize="1.6rem"></app-title>
-    <form [formGroup]="checkoutForm">
-      <div class="row">
-        <div class="col-12">
-          <input
-            style="font-weight: bold; width: 100%;"
-            pInputText
-            formControlName="name"
-            label="Name"
-            type="text"
-          />
-        </div>
-        <div class="col-12" style="margin-top: 10px">
-          <input
-            style="font-weight: bold; width: 100%;"
-            pInputText
-            formControlName="address"
-            label="Address"
-            type="text"
-          />
+<div class="container mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Order Form Section -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <app-title title="Order Form" fontSize="1.6rem"></app-title>
+        <form [formGroup]="checkoutForm" class="space-y-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-semibold">Name</span>
+            </label>
+            <input
+              pInputText
+              formControlName="name"
+              type="text"
+              class="input input-bordered w-full"
+            />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-semibold">Address</span>
+            </label>
+            <input
+              pInputText
+              formControlName="address"
+              type="text"
+              class="input input-bordered w-full"
+            />
+          </div>
+        </form>
+        <div class="mt-6">
+          <order-items-list [order]="order"></order-items-list>
         </div>
       </div>
-    </form>
-    <order-items-list [order]="order"></order-items-list>
-  </div>
-  <div class="map">
-    <app-title title="Choose Your Address On Map" fontSize="1.6rem"></app-title>
-    <map [order]="order"></map>
-  </div>
-  <div class="buttons-container">
-    <div class="buttons">
-      <button (click)="createOrder()">
-        Go To Payment
-      </button>
     </div>
+
+    <!-- Map Section -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <app-title
+          title="Choose Your Address On Map"
+          fontSize="1.6rem"
+        ></app-title>
+        <div class="h-96 rounded-lg overflow-hidden">
+          <map [order]="order"></map>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Button -->
+  <div class="flex justify-center mt-8">
+    <button (click)="createOrder()" class="btn btn-primary btn-lg">
+      Go To Payment
+      <svg
+        class="w-5 h-5 ml-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 7l5 5m0 0l-5 5m5-5H6"
+        ></path>
+      </svg>
+    </button>
   </div>
 </div>

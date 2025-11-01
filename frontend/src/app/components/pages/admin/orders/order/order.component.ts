@@ -7,7 +7,6 @@ import { Order } from 'src/app/shared/models/Order';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrl: './order.component.css',
   providers: [DatePipe]
 })
 export class OrderComponent implements OnInit {

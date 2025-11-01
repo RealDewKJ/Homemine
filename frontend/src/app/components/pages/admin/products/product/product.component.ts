@@ -9,7 +9,6 @@ import { Furniture } from 'src/app/shared/models/Furniture';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css',
   providers: [DatePipe,MessageService],
 })
 export class ProductComponent implements OnInit {

@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-dotenv.config();
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 import express from "express"; 
 import cors from "cors";
 import furnitureRouter from './routes/furniture.routes'

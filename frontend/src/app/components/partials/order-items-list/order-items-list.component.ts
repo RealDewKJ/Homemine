@@ -3,8 +3,7 @@ import { Order } from 'src/app/shared/models/Order';
 
 @Component({
   selector: 'order-items-list',
-  templateUrl: './order-items-list.component.html',
-  styleUrl: './order-items-list.component.css'
+  templateUrl: './order-items-list.component.html'
 })
 export class OrderItemsListComponent {
 

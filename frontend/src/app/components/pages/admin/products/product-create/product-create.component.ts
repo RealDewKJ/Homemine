@@ -10,7 +10,6 @@ interface form {
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
-  styleUrl: './product-create.component.css',
   providers: [MessageService]
 })
 
