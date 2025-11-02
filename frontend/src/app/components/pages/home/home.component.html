@@ -17,7 +17,7 @@
       class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
     >
       <a routerLink="/furniture/{{ furniture.id }}" class="block h-full">
-        <figure class="h-64 bg-base-200 overflow-hidden">
+        <figure class="h-64 bg-white overflow-hidden">
           <img
             [src]="furniture.imageUrl"
             [alt]="furniture.name"
@@ -40,17 +40,18 @@
           <div class="mb-2">
             <star-rating [stars]="furniture.stars"></star-rating>
           </div>
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span
-              *ngFor="let origin of furniture.origins"
-              class="badge badge-outline badge-sm"
-            >
-              {{ origin }}
-            </span>
-          </div>
-          <div class="card-actions justify-end">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div class="text-2xl font-bold text-primary">
               ฿{{ furniture.price }}.00
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                *ngFor="let origin of furniture.origins"
+                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                       bg-base-200/60 text-base-content/80 border border-base-300/50"
+              >
+                {{ origin }}
+              </span>
             </div>
           </div>
         </div>

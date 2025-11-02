@@ -3,9 +3,10 @@
   @for (tag of tags; track $index) {
   <a
     routerLink="/tag/{{ tag.name }}"
-    class="badge badge-outline badge-lg hover:badge-primary hover:text-primary-content transition-all"
+    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-base-200/60 text-base-content/80 border border-base-300/50 
+      hover:bg-primary/10 hover:text-primary transition-all duration-200"
   >
-    {{ tag.name }} <span class="badge badge-sm ml-1">{{ tag.count }}</span>
+    {{ tag.name }} <span class="ml-1 flex items-center justify-center h-5 px-1.5 rounded-full bg-primary/20 text-primary">{{ tag.count }}</span>
   </a>
   }
 </div>

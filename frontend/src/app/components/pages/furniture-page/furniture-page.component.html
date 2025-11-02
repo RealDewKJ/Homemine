@@ -10,7 +10,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Image Section -->
     <div class="card bg-base-100 shadow-xl">
-      <figure class="h-96 bg-base-200">
+      <figure class="h-96 bg-white">
         <img
           [src]="furniture.imageUrl"
           [alt]="furniture.name"
@@ -39,7 +39,8 @@
         <div class="flex flex-wrap gap-2 mb-4">
           <span
             *ngFor="let origin of furniture.origins"
-            class="badge badge-outline"
+            class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+            bg-base-200/60 text-base-content/80 border border-base-300/50"
           >
             {{ origin }}
           </span>
